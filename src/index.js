@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+/* Add NavLink to importer */
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
-const Home = () => {
-  return (
+import About from './about'
+import Login from './login'
+import Navbar from './navbar'
+
+
+const Home = () => <h1>Home!</h1>;
+
+ReactDOM.render((
+  <Router>
     <div>
-      <h1>Home!</h1>
+      <Navbar />
+      <br></br>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/login" component={Login} />
     </div>
-  );
-};
-
-ReactDOM.render(
-  <Home />,
+  </Router>),
   document.getElementById('root')
 );
